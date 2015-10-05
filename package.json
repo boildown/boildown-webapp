@@ -1,0 +1,24 @@
+{
+  "name": "gentry-webapp",
+  "description": "gentry webapp",
+  "version": "0.0.1",
+  "homepage": "http://github.com/gentryjs/gentry-webapp",
+  "repository": "git://github.com/gentryjs/gentry-webapp.git",
+  "author": "David Thomas Grübl <me@dtg.sexy> (https://dtg.sexy)",
+  "main": "./index.js",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/gentryjs/gentry-boiler/raw/master/LICENSE"
+    }
+  ],
+  "devDependencies": {
+    "standard": "^5.3.1"
+  },
+  "scripts": {
+   "test": "standard"
+  }
+}
