@@ -1,22 +1,17 @@
 {
-  "name": "gentry-webapp",
-  "description": "gentry webapp",
+  "name": "boildown-webapp",
+  "description": "boildown webapp",
   "version": "0.0.1",
-  "homepage": "http://github.com/gentryjs/gentry-webapp",
-  "repository": "git://github.com/gentryjs/gentry-webapp.git",
+  "homepage": "http://github.com/boildown/boildown-webapp",
+  "repository": "git://github.com/boildown/boildown-webapp.git",
   "author": "David Thomas Grübl <me@dtg.sexy> (https://dtg.sexy)",
   "main": "./index.js",
   "engines": {
     "node": ">= 4.0.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/gentryjs/gentry-boiler/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "devDependencies": {
-    "standard": "^5.3.1"
+    "standard": "^5.4.1"
   },
   "scripts": {
    "test": "standard"
