@@ -12,9 +12,10 @@ styles = 'styl'
 
 */
 module.exports = function ({features, styles}, done) {
-  var featuresS = {
+  var features = {
     bootstrap: true,
     modernizer: false,
     jQuery: false
   }
+
 }
