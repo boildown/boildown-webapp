@@ -1,14 +1,14 @@
 module.exports = [{
-  name: 'buildsystem'
+  name: 'buildsystem',
   question: 'What is your preffered build system?',
   type: 'list',
   choices: ['npm', 'gulp']
-},{
+}, {
   name: 'styles',
   question: 'What is your preferred stylesheet language?',
   type: 'list',
-  choices: ['sass', 'css']}
-},{
+  choices: ['sass', 'css']
+}, {
   name: 'features',
   question: 'Would you like to include any of these libraries?',
   type: 'checkbox',

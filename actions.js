@@ -7,6 +7,4 @@
     'jQuery'
   ]}
 */
-module.exports = function ({styles, features}, done) {
-
-}
+module.exports = function ({styles, features}, done) {}

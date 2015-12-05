@@ -18,7 +18,7 @@ module.exports = function (pkg, {buildsystem, styles, features}) {
   Object.assign(
     pkg.dependencies,
     styles.bootstrap && {booostrap: '3.3.6'}
-    )
+  )
 
   Object.assign(
     pkg.devDependencies,
