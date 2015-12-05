@@ -1,1 +1,5 @@
-module.exports = require('./app')
+module.exports = {
+  scaffold: './scaffold',
+  actions: require('./actions'),
+  questions: require('./questions')
+}
