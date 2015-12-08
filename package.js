@@ -38,26 +38,26 @@ module.exports = function (pkg, {buildsystem, styles, features}) {
     buildsystem.gulp && styles.sass && {
       'gulp-plumber': '^1.0.1',
       'gulp-sass': '^2.0.0'
-    }
+    },
     buildsystem.npm && styles.sass && {
       'sassify': '0.9.1'
     }
   )
 
-
-  if (buildsystem.npm && styles.sass) _.set(pkg, ‘browserify.transform’, ['sassify'])
+  if (buildsystem.npm && styles.sass) _.set(pkg, 'browserify.transform', ['sassify'])
 
   Object.assign(
     pkg.scripts,
     {build: 'npm-run-all build:*'},
     buildsystem.gulp ? {
-      'build:gulp': 'gulp build'
+      'build:gulp': 'gulp build',
       start: 'gulp watch'
     } : {
-      start: 'watchify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
-      prebuild: 'rimraf ./dist && mkdir dist'
+      start: 'watchify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js',
+      prebuild: 'rimraf ./dist && mkdir dist',
       'build:js': 'browserify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
     }
+  )
 
   return pkg
 }
