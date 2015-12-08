@@ -15,6 +15,12 @@ module.exports = function (pkg, {buildsystem, styles, features}) {
     'gulp-useref': '^3.0.0'
   }
 
+  const npmScripts = {
+    'browserify': '12.0.1',
+    'watchify': '3.6.1',
+    'babelify': '7.2.0'
+  }
+
   Object.assign(
     pkg.dependencies,
     styles.bootstrap && {booostrap: '3.3.6'}
@@ -28,13 +34,30 @@ module.exports = function (pkg, {buildsystem, styles, features}) {
       'npm-run-all': '1.3.3'
     },
     styles.sass && {'node-sass': '3.4.2'},
-    buildsystem.gulp && gulp,
+    buildsystem.gulp ? gulp : npmScripts,
     buildsystem.gulp && styles.sass && {
       'gulp-plumber': '^1.0.1',
       'gulp-sass': '^2.0.0'
     }
+    buildsystem.npm && styles.sass && {
+      'sassify': '0.9.1'
+    }
   )
-  pkg.scripts.build = 'npm-run-all build:*'
+
+  if (!pkg.browserify.transform) pkg.browserify.transform = []
+  if (buildsystem.npm && styles.sass) pkg.browserify.transform.push('sassify')
+
+  Object.assign(
+    pkg.scripts,
+    {build: 'npm-run-all build:*'},
+    buildsystem.gulp ? {
+      'build:gulp': 'gulp build'
+      start: 'gulp watch'
+    } : {
+      start: 'watchify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
+      prebuild: 'rimraf ./dist && mkdir dist'
+      'build:js': 'browserify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
+    }
 
   return pkg
 }

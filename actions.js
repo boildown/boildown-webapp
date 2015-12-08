@@ -1,5 +1,6 @@
 /*
   answers = {
+    buildsystem: 'npm',
     styles: 'sass',
     features: [
     'bootstrap',

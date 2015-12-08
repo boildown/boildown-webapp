@@ -1,1 +1,2 @@
+<% if %>
 console.log(':)')

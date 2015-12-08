@@ -14,6 +14,6 @@
     "standard": "^5.4.1"
   },
   "scripts": {
-   "test": "standard"
+    "test": "standard"
   }
 }
