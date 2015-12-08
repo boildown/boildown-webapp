@@ -1,4 +1,9 @@
-module.exports = function (pkg, {buildsystem, styles, features}) {
+// config = {buildsystem, styles, features}
+module.exports = function (pkg, config) {
+  const buildsystem = config.buildsystem
+  const styles = config.styles
+  const features = config.styles
+
   const gulp = {
     'gulp': '^3.9.0',
     'gulp-autoprefixer': '^3.0.1',

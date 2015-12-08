@@ -1,3 +1,4 @@
+'use strict'
 /*
   answers = {
     buildsystem: 'npm',
@@ -7,5 +8,9 @@
     'modernizer',
     'jQuery'
   ]}
+
+config = {styles, features}
 */
-module.exports = function ({styles, features}, done) {}
+
+
+module.exports = function (config, done) {}
