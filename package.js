@@ -1,3 +1,4 @@
+const _ = require('lodash')
 // config = {buildsystem, styles, features}
 module.exports = function (pkg, config) {
   const buildsystem = config.buildsystem
@@ -26,12 +27,14 @@ module.exports = function (pkg, config) {
     'babelify': '7.2.0'
   }
 
-  Object.assign(
+  _.set(pkg, 'dependencies', _.assign(
+    {},
     pkg.dependencies,
-    styles.bootstrap && {booostrap: '3.3.6'}
-  )
+    features.bootstrap && {bootstrap: '3.3.6'}
+  ))
 
-  Object.assign(
+  _.set(pkg, 'devDependencies', _.assign(
+    {},
     pkg.devDependencies,
     buildsystem.npm && {
       rimraf: '2.4.4',
@@ -47,11 +50,12 @@ module.exports = function (pkg, config) {
     buildsystem.npm && styles.sass && {
       'sassify': '0.9.1'
     }
-  )
+  ))
 
   if (buildsystem.npm && styles.sass) _.set(pkg, 'browserify.transform', ['sassify'])
 
-  Object.assign(
+  _.set(pkg, 'scripts', _.assign(
+    {},
     pkg.scripts,
     {build: 'npm-run-all build:*'},
     buildsystem.gulp ? {
@@ -62,7 +66,7 @@ module.exports = function (pkg, config) {
       prebuild: 'rimraf ./dist && mkdir dist',
       'build:js': 'browserify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
     }
-  )
+  ))
 
   return pkg
 }
