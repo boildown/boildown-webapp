@@ -1,6 +1,6 @@
 module.exports = [{
   name: 'buildsystem',
-  message: 'What is your preffered build system?',
+  message: 'What is your preferred build system?',
   type: 'list',
   choices: ['npm', 'gulp']
 }, {
