@@ -24,7 +24,10 @@ module.exports = function (pkg, config) {
   const npmBuild = {
     browserify: '12.0.1',
     watchify: '3.6.1',
-    babelify: '7.2.0'
+    babelify: '7.2.0',
+    rimraf: '2.4.4',
+    mkdirp: '0.5.1',
+    'npm-run-all': '1.3.3'
   }
 
   _.set(pkg, 'dependencies', _.assign(
@@ -36,11 +39,6 @@ module.exports = function (pkg, config) {
   _.set(pkg, 'devDependencies', _.assign(
     {},
     pkg.devDependencies,
-    buildsystem.npm && {
-      rimraf: '2.4.4',
-      mkdirp: '0.5.1',
-      'npm-run-all': '1.3.3'
-    },
     styles.sass && {'node-sass': '3.4.2'},
     buildsystem.gulp ? gulp : npmBuild,
     buildsystem.gulp && styles.sass && {
