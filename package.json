@@ -1,7 +1,7 @@
 {
   "name": "boildown-webapp",
   "description": "boildown webapp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "http://github.com/boildown/boildown-webapp",
   "repository": "git://github.com/boildown/boildown-webapp.git",
   "author": "David Thomas Grübl <me@dtg.sexy> (https://dtg.sexy)",
