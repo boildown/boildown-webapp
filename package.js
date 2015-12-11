@@ -22,9 +22,9 @@ module.exports = function (pkg, config) {
   }
 
   const npmBuild = {
-    'browserify': '12.0.1',
-    'watchify': '3.6.1',
-    'babelify': '7.2.0'
+    browserify: '12.0.1',
+    watchify: '3.6.1',
+    babelify: '7.2.0'
   }
 
   _.set(pkg, 'dependencies', _.assign(
@@ -48,7 +48,7 @@ module.exports = function (pkg, config) {
       'gulp-sass': '^2.0.0'
     },
     buildsystem.npm && styles.sass && {
-      'sassify': '0.9.1'
+      sassify: '0.9.1'
     }
   ))
 
@@ -62,8 +62,9 @@ module.exports = function (pkg, config) {
       'build:gulp': 'gulp build',
       start: 'gulp watch'
     } : {
-      start: 'watchify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js',
+      start: 'watchify index.js -o dist/bundle.js',
       prebuild: 'rimraf ./dist && mkdir dist',
+      prestart: 'npm run prebuild',
       'build:js': 'browserify -t [babelify --presets [es2015]] -i index.js > dist/bundle.js'
     }
   ))
